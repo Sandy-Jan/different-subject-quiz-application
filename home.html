@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home for quiz app</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- creation of form to store all the details -->
+    <form id="nameForm" class="userDetails">
+      <img src="unnamed.png" alt="logo" width="200px" height="200px" />
+      <h1>Hello User!</h1>
+      <h3>Enter your name to continue the Quiz</h3>
+      <div class="input">
+        <!-- Area for the users to insert their names -->
+        <input
+          type="text"
+          id="userName"
+          class="userName"
+          placeholder="Enter your name"
+          required
+        />
+        <!-- click to store the name of user in the local storage -->
+        <button type="submit">Enter</button>
+      </div>
+      <!-- giving time of 10 seconds -->
+      <p>You'll have 10 seconds to answer each question</p>
+    </form>
+    <div class="category">
+      <!-- categories among the user can choose the subjects of quiz -->
+      <h1>Select Category</h1>
+      <a href="/ages.html">Ages</a>
+      <a href="/index.html">Pipes and Cistern</a>
+      <a href="/probablity.html">Probability</a>
+      <a href="profitNLoss.html">Profit and Loss</a>
+    </div>
+    <script>
+      // calling the ID of form to implement submit button
+      document.getElementById("nameForm").addEventListener("submit", function (event) {
+          event.preventDefault(); // Prevent form submission
+          const userName = document.getElementById("userName").value.trim();
+
+          if (userName !== "") {
+            // Store the user's name in local storage of the browser
+            localStorage.setItem("userName", userName);
+          }
+        });
+    </script>
+  </body>
+</html>
